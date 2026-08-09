@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, session, flash
+import os
 import psycopg2
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -11,13 +12,9 @@ app.secret_key = "tech_forum_secret_key"
 # DATABASE CONNECTION
 def get_db_connection():
     conn = psycopg2.connect(
-        host="localhost",
-        database="tech_forum",
-        user="postgres",
-        password="Postgres@123"
+        os.environ.get("DATABASE_URL")
     )
     return conn
-
 
 # CREATE DATABASE TABLES
 def create_tables():
