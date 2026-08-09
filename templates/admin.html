@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/common.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/admin.css') }}">
+
+    <title>Admin Dashboard</title>
+
+</head>
+
+<body>
+
+<div class="admin-container">
+
+    <h1>👑 Admin Dashboard</h1>
+
+    <!-- Statistics -->
+
+    <div class="stats-container">
+
+        <div class="stat-card">
+            <h3>👥 Total Users</h3>
+            <p>{{ total_users }}</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>❓ Total Questions</h3>
+            <p>{{ total_questions }}</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>💬 Total Answers</h3>
+            <p>{{ total_answers }}</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>❤️ Total Likes</h3>
+            <p>{{ total_likes }}</p>
+        </div>
+
+    </div>
+
+
+    <!-- All Users -->
+
+    <div class="users-section">
+
+        <h2>👤 All Users</h2>
+
+        <div class="user-list">
+
+            {% for user in users %}
+
+            <div class="user-card">
+
+                <div class="user-info">
+
+                    <h3>👤 {{ user[1] }}</h3>
+
+                    <p>📧 {{ user[2] }}</p>
+
+                    <small>User ID: {{ user[0] }}</small>
+
+                </div>
+
+                <a href="/admin/delete_user/{{ user[0] }}"
+                   class="delete-btn">
+
+                    Delete
+
+                </a>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+
+    <!-- Back -->
+
+    <a href="/" class="back-btn">
+        ← Back to Home
+    </a>
+
+</div>
+
+</body>
+</html>

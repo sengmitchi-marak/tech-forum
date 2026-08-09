@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <link rel="stylesheet"
+            href="{{ url_for('static', filename='css/common.css') }}">
+
+        <link rel="stylesheet"
+            href="{{ url_for('static', filename='css/home.css') }}">
+    
+
+    <title>Home page</title>
+</head>
+<body>
+
+<div class="home-container">
+
+    <!-- Logo -->
+    <h1 class="logo">
+        Tech<span>Forum</span> 👩🏻‍💻
+    </h1>
+
+    <!-- If user is NOT logged in -->
+    {% if not session.get("user_id") %}
+
+    <p class="intro">
+        TechForum is a web application where users can ask technology-related
+        questions, answer other users' questions, and search for programming discussions.
+    </p>
+
+    <div class="guest-buttons">
+    <a href="/login">
+        <button>Login</button>
+    </a>
+
+    <a href="/register">
+        <button>Register</button>
+    </a>
+    </div>
+    {% else %}
+
+    <!-- LOGIN USER -->
+    <div class="welcome">
+        <h2>Welcome {{ session.username }} 👋</h2>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="top-buttons">
+
+        <!--PROFILE PAGE-->
+    <a href="/profile">
+        <button>Profile</button>
+    </a>
+
+
+        <a href="/ask">
+            <button>Ask Question</button>
+        </a>
+
+        <a href="/logout">
+            <button>Logout</button>
+        </a>
+
+        {% if session.get("admin") %}
+        <a href="/admin">
+            <button>👑 Admin Panel</button>
+        </a>
+        {% endif %}
+
+    </div>
+ {% endif %}
+
+    <!-- Search -->
+    <form action="/" method="GET" class="search-box">
+
+        <input 
+            type="text"
+            name="search"
+            placeholder="Search questions...">
+
+        <button type="submit">
+            🔍 Search
+        </button>
+
+    </form>
+
+    <!-- No Search Results -->
+    {% if message %}
+
+    <div class="question-card">
+
+        <h3>{{ message }}</h3>
+
+        <p>Be the first to ask this question!</p>
+
+        {% if session.get("user_id") %}
+        <a href="/ask">
+            <button>➕ Ask Question</button>
+        </a>
+        {% endif %}
+    </div>
+
+    {% endif %}
+
+    <!-- LATEST Questions -->
+     <h2 class="section-title">
+        🔥Latest Questions
+     </h2>
+    {% for question in questions %}
+
+    <div class="question-card">
+
+        <h2>{{ question[1] }}</h2>
+
+        <p><b>Asked by:</b> {{ question[4] }}</p>
+
+        <p><b>Date:</b> {{ question[3].strftime("%d %b %Y") }}</p>
+
+        <a href="/question/{{ question[0] }}">
+            <button class="view-btn">View</button>
+        </a>
+
+        <br><br>
+
+        <a href="/like/{{ question[0] }}" class="like-btn">
+            ❤️ Like
+        </a>
+
+        <span>{{ question[5] }} Likes</span>
+
+        <br><br>
+
+        <span>
+            💬 {{ question[6] }} Answers
+        </span>
+
+    </div>
+
+    {% endfor %}
+
+    
+
+    <!-- Footer -->
+    <p class="footer-text">
+        Ask any technology-related question and get answers from the community.
+    </p>
+
+    <footer class="footer">
+        <p>&copy; 2026 Tech Forum. All rights reserved.</p>
+    </footer>
+
+</div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

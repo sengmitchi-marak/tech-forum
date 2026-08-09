@@ -1,0 +1,64 @@
+.edit-container {
+    width: 600px;
+    max-width: 90%;
+    margin: 50px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+.edit-container h2 {
+    text-align: center;
+    color: #1e3a8a;
+    margin-bottom: 25px;
+}
+
+.edit-form label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+
+.edit-form input,
+.edit-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    margin-bottom: 18px;
+}
+
+.edit-form textarea {
+    min-height: 180px;
+    resize: vertical;
+}
+
+.edit-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.update-btn,
+.cancel-btn {
+    padding: 11px 20px;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.update-btn {
+    background: #0d6efd;
+    color: white;
+}
+
+.cancel-btn {
+    background: #6c757d;
+    color: white;
+}

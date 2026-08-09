@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/common.css') }}">
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/auth.css') }}">
+          <title>Login</title>
+</head>
+<body>
+    
+    <div class="auth-container">
+
+    <h2 class="auth-title">Tech Forum👩🏻‍💻🔍</h2>
+
+    <p class="subtitle">Login to your account</p>
+
+    <!-- Success Message -->
+
+    {% if request.args.get('success') %}
+        <p>
+            Registration Successful! Please login.
+        </p>
+    {% endif %}
+
+    <!-- Error Message -->
+
+    {% if error %}
+        <p class="error">
+            {{ error }}
+        </p>
+    {% endif %}
+
+
+        {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+            <p style="color:red;">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+    <form action="/login" method="POST">
+
+        <label>Email Address</label>
+
+        <input  class="input-group"
+            type="email"
+            name="email"
+            placeholder="Enter your email"
+            required>
+        <br>
+        <label>Password</label>
+
+        <input  class="input-group"
+            type="password"
+            name="password"
+            placeholder="Enter your password"
+            required>
+
+        <br>
+        <button class="btn-submit" type="submit">
+            Login
+        </button>
+
+    </form>
+ 
+
+    <div class="links">
+
+        <p>Don't have an account?</p>
+
+        <a href="/register">
+            Create Account
+        </a>
+
+    </div>
+
+    <div class="home-link">
+
+        <a href="/">
+            ← Back to Home
+        </a>
+
+    </div>
+    </div>
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

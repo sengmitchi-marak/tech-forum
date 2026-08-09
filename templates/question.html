@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/common.css') }}">
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/question.css') }}">
+
+<title>Question Details</title>
+
+</head>
+
+<body>
+
+<div class="question-container">
+
+<h1 class="logo">
+    Tech<span>Forum</span> 👩🏻‍💻
+</h1>
+
+<div class="top-buttons">
+
+<a href="/">
+<button>🏠 Home</button>
+</a>
+
+<a href="/profile">
+<button>👤 Profile</button>
+</a>
+
+</div>
+
+<div class="question-box">
+
+<h2>{{ question[1] }}</h2>
+
+<p>{{ question[2] }}</p>
+
+<!--<p><b>🏷️ Tag:</b> {{ question[3] }}</p>-->
+
+<p><b>👤 Asked by:</b> {{ question[5] }}</p>
+
+</div>
+
+<h2>💬 Answers</h2>
+
+{% for answer in answers %}
+
+<div class="answer-card">
+
+<p>{{ answer[1] }}</p>
+
+<p><b>By:</b> {{ answer[3] }}</p>
+
+</div>
+
+{% endfor %}
+
+{% if session.user_id == question[6] %}
+
+<div class="top-buttons">
+
+<a href="/edit/{{ question[0] }}">
+<button>Edit Question</button>
+</a>
+
+<a href="/delete_question/{{ question[0] }}">
+<button>Delete Question</button>
+</a>
+
+</div>
+
+{% endif %}
+
+<div class="question-box">
+
+<h3>Write Your Answer</h3>
+
+<form action="/answer/{{ question_id }}" method="POST">
+
+<textarea
+name="answer"
+placeholder="Write your answer here..."
+required></textarea>
+
+<br><br>
+
+<button
+type="submit"
+class="submit-btn">
+
+💬 Submit Answer
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

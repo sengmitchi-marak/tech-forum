@@ -1,0 +1,91 @@
+/* ===========================
+   ASK QUESTION & VIEW QUESTION
+=========================== */
+
+.question-container{
+    width:85%;
+    max-width:850px;
+    margin:40px auto;
+}
+
+/* Card */
+.question-box{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+    margin-bottom:35px;
+}
+
+
+
+/* Heading */
+
+.question-box h2{
+    color:#1e3a8a;
+    margin-bottom:20px;
+}
+
+/* Labels */
+
+.question-box label{
+    display:block;
+    margin-top:18px;
+    margin-bottom:8px;
+    font-weight:bold;
+}
+
+/* Inputs */
+
+.question-box input,
+.question-box textarea,
+.question-box select{
+    width:100%;
+}
+
+/* Textarea */
+
+.question-box textarea{
+    min-height:180px;
+}
+
+/* Submit Button */
+
+.submit-btn{
+    margin-top:25px;
+    background:#2563eb;
+}
+
+.submit-btn:hover{
+    background:#1d4ed8;
+}
+
+/* Answer Card */
+.answer-card{
+    background:white;
+    padding:20px;
+    border-left:5px solid #2563eb;
+    border-radius:10px;
+    margin:20px 0;
+}
+
+
+.answer-card p{
+    margin:8px 0;
+}
+
+.back-btn{
+    background:#64748b;
+}
+
+.back-btn:hover{
+    background:#475569;
+}
+
+.top-buttons{
+    display:flex;
+    gap:15px;
+    margin-bottom:30px;   
+}
+
+

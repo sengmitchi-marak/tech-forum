@@ -1,0 +1,127 @@
+.admin-container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto;
+}
+
+.admin-container h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #1e3a8a;
+}
+
+/* Statistics */
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 35px;
+}
+
+.stat-card {
+    background: white;
+    padding: 22px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+}
+
+.stat-card h3 {
+    margin: 0 0 10px;
+    font-size: 15px;
+}
+
+.stat-card p {
+    margin: 0;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Users Section */
+
+.users-section {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+}
+
+.users-section h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #1e3a8a;
+}
+
+
+/* User Cards */
+
+.user-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.user-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 15px 18px;
+
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+}
+
+.user-info h3 {
+    margin: 0 0 5px;
+    color: #1f2937;
+}
+
+.user-info p {
+    margin: 3px 0;
+    color: #555;
+}
+
+.user-info small {
+    color: #888;
+}
+
+
+/* Delete Button */
+
+.user-card .delete-btn {
+    background: #dc3545;
+    color: white;
+
+    padding: 8px 14px;
+
+    border-radius: 7px;
+    text-decoration: none;
+
+    font-size: 14px;
+}
+
+.user-card .delete-btn:hover {
+    background: #b02a37;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .user-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .user-card .delete-btn {
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+}
