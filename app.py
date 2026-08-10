@@ -21,6 +21,8 @@ def create_tables():
 
     conn = get_db_connection()
     cursor = conn.cursor()
+    
+    print(">>> LIKES TABLE CREATED")
 
     # USERS TABLE
     cursor.execute("""
