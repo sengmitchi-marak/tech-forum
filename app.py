@@ -21,7 +21,7 @@ def create_tables():
 
     conn = get_db_connection()
     cursor = conn.cursor()
-    
+
     print(">>> LIKES TABLE CREATED")
 
     # USERS TABLE
@@ -78,7 +78,7 @@ def create_tables():
 @app.route("/")
 def home():
 
-    search = request.args.get("search")
+    search = request.args.get("search","").strip()
 
     conn = get_db_connection()
     cursor = conn.cursor()
@@ -148,7 +148,7 @@ def home():
 
     questions = cursor.fetchall()
 
-    if len(questions) == 0:
+    if len(questions) == 0 and search:
         message = "No matching questions found."
     else:
         message = ""
