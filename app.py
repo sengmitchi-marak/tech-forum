@@ -44,6 +44,16 @@ def create_tables():
         )
     """)
 
+    # LIKES TABLE
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS likes (
+        id SERIAL PRIMARY KEY,
+        user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+        question_id INTEGER REFERENCES questions(id) ON DELETE CASCADE,
+        UNIQUE(user_id, question_id)
+    )
+""")
+
     # ANSWERS TABLE
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS answers (
